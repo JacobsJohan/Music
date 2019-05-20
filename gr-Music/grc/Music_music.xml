@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<block>
+  <name>music</name>
+  <key>Music_music</key>
+  <category>[Music]</category>
+  <import>import Music</import>
+  <make>Music.music($numAnt, $numSamp, $numSrc, $distance, $freq, $accuracy)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+  <param>
+    <name>Nr of antennas</name>
+    <key>numAnt</key>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Nr of samples</name>
+    <key>numSamp</key>
+    <type>int</type>
+  </param>
+
+  <param>
+  <name>Nr of sources</name>
+    <key>numSrc</key>
+    <type>int</type>
+  </param>
+
+  <param>
+  <name>Distance</name>
+    <key>distance</key>
+    <type>float</type>
+  </param>
+
+  <param>
+  <name>Frequency [MHz]</name>
+    <key>freq</key>
+    <type>float</type>
+  </param>
+
+  <param>
+  <name>Accuracy</name>
+    <key>accuracy</key>
+    <type>float</type>
+  </param>
+
+  <!-- Make one 'sink' node per input. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+    <nports>$numAnt</nports>
+  </sink>
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <source>
+    <name>out</name>
+    <type>float</type>
+  </source>
+</block>
